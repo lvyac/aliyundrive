@@ -1,58 +1,55 @@
 <template>
   <el-menu
-    default-active="2"
-    class="el-menu-vertical-demo"
+    default-active="0"
+    class="el-menu-vertical-demo no-boder"
     :collapse="isCollapse"
-    @open="handleOpen"
     @close="handleClose"
+    @select="handleOpen"
   >
-    <el-sub-menu index="1">
-      <template #title>
-        <el-icon><location /></el-icon>
-        <span>Navigator One</span>
-      </template>
-      <el-menu-item-group>
-        <template #title><span>Group One</span></template>
-        <el-menu-item index="1-1">item one</el-menu-item>
-        <el-menu-item index="1-2">item two</el-menu-item>
-      </el-menu-item-group>
-      <el-menu-item-group title="Group Two">
-        <el-menu-item index="1-3">item three</el-menu-item>
-      </el-menu-item-group>
-      <el-sub-menu index="1-4">
-        <template #title><span>item four</span></template>
-        <el-menu-item index="1-4-1">item one</el-menu-item>
-      </el-sub-menu>
-    </el-sub-menu>
-    <el-menu-item index="2">
-      <el-icon><icon-menu /></el-icon>
-      <template #title>Navigator Two</template>
-    </el-menu-item>
-    <el-menu-item index="3" disabled>
-      <el-icon><document /></el-icon>
-      <template #title>Navigator Three</template>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <el-icon><setting /></el-icon>
-      <template #title>Navigator Four</template>
+    
+    <el-menu-item v-for="(item, _index) in menuList" :key="_index" :index="_index.toString()">
+      <el-icon :style="{color: item.color}"><component :is="item.icon"></component></el-icon>
+      <template #title>{{ item.name }}</template>
     </el-menu-item>
   </el-menu>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, shallowRef } from "vue";
 import {
-  Location,
-  Document,
-  Menu as IconMenu,
-  Setting,
+  VideoCamera,
+  Film,
+  Lollipop,
+  Camera,
+  Service,
+  ShoppingBag,
+  Document as IconDocument,
+  Menu as IocnMenu,
+  Picture,
+  Setting as IconMore
 } from "@element-plus/icons-vue";
 
-const isCollapse = ref(true);
+const isCollapse = ref(false);
+const menuList = shallowRef([
+  { id: 99, name: "全部", icon: IocnMenu, href: null, color: "#4D698E" },
+  { id: 1, name: "电影", icon: Film, href: "hydy", color: "#EE3525" },
+  { id: 2, name: "电视", icon: VideoCamera, href: "hyds", color: "#FED43C" },
+  { id: 3, name: "动漫", icon: Lollipop, href: "hydm", color: "#9CCA49" },
+  { id: 4, name: "视频", icon: Camera, href: "jlp", color: "#4DABF7" },
+  { id: 5, name: "音乐", icon: Service, href: "hyyy", color: "#FD7E13" },
+  { id: 6, name: "软件", icon: ShoppingBag, href: "kfrj", color: "#15AABF" },
+  { id: 7, name: "文档", icon: IconDocument, href: "mh", color: "#4C6EF5" },
+  { id: 8, name: "图片", icon: Picture, href: "bz", color: "#FED43C" },
+  { id: 9, name: "其他", icon: IconMore, href: "qt", color: "#E8ECF3" }
+]);
+
+const emits = defineEmits(['change'])
+
 const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
+  emits('change', menuList.value[parseInt(key)])
 };
 const handleClose = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
+
 </script>

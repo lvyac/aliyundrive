@@ -23,3 +23,19 @@ code {
   background-color: var(--ep-color-primary-light-9);
   color: var(--ep-color-primary);
 }
+
+.container {
+  width: 120px;
+  margin: auto;
+}
+
+.no-boder{
+  border: none !important;
+}
+
+.text-line-2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
