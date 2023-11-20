@@ -21,14 +21,6 @@ npm run dev
 npm run build
 ```
 
-## Usage
-
-```bash
-git clone https://github.com/element-plus/element-plus-vite-starter
-cd element-plus-vite-starter
-npm i
-npm run dev
-```
 
 ### Custom theme
 
