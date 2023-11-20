@@ -4,7 +4,7 @@
 
 数据库在 ./README/Data.db
 
-![]('./README/WX20231120-094149.png')
+<img src="./README/WX20231120-094149.png" alt="截图" style="zoom:50%; width:100%;" />
 
 记得修改 src/components/layouts/MainContent.vue 里的 api 地址
 
