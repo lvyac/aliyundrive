@@ -1,14 +1,7 @@
-# element-plus-vite-starter
+# 阿里网盘资源共享站
 
-> A starter kit for Element Plus with Vite
+前端用的是 Element-plus 就简单的一个页面
 
-- Preview: <https://vite-starter.element-plus.org>
-
-This is an example of on-demand element-plus with [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components).
-
-> If you want to import all, it may be so simple that no examples are needed. Just follow [quickstart | Docs](https://element-plus.org/zh-CN/guide/quickstart.html) and import them.
-
-If you just want an on-demand import example `manually`, you can check [unplugin-element-plus/examples/vite](https://github.com/element-plus/unplugin-element-plus/tree/main/examples/vite).
 
 ## Project setup
 
